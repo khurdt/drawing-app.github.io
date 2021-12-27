@@ -1,0 +1,7 @@
+canvas {
+  border: 1px solid #000;
+  touch-action: none;
+  z-index: -1;
+  width: calc(100vw - 30px);
+  height: calc(100vh - 30px);
+}

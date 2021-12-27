@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Drawing App</title>
+    <meta name="description" content="">
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="controls">
+      <select id="changeView">
+        <option value="normal">normal</option>
+        <option value="mirror">mirror</option>
+        <option value="quadrants">quadrants</option>
+      </select>
+      <label for="changeLineWidth">Width:</label>
+      <input id="changeLineWidth" type="number" min="1" max="15" value="5" />
+      <select id="changeColors">
+        <option value="#FF00FF">pink</option>
+        <option value="#FF0000">red</option>
+        <option value="#0000ff">blue</option>
+        <option value="#ffff00">yellow</option>
+      </select>
+      <button id="clearCanvas">Clear</button>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+  </body>
+</html>
