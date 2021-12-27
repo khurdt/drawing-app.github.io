@@ -30,11 +30,11 @@
     if (!isDrawing) {
       return;
     }
-
+    
     // const top = +window.getComputedStyle(canvas).getPropertyValue('top').slice(0, -2),
     //       left = +window.getComputedStyle(canvas).getPropertyValue('left').slice(0, -2),
     let x = e.pageX - 10;
-    let y = e.pageY - 30;
+    let y = e.pageY - 60;
 
           draw(x, y);
 
