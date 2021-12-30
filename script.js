@@ -30,7 +30,7 @@
     if (!isDrawing) {
       return;
     }
-    
+
     // const top = +window.getComputedStyle(canvas).getPropertyValue('top').slice(0, -2),
     //       left = +window.getComputedStyle(canvas).getPropertyValue('left').slice(0, -2),
     let x = e.pageX - 10;
@@ -109,7 +109,6 @@
     } else if (currentView === 'quadrants') {
       previousCoords = [{x: null, y: null}, {x: null, y: null}, {x: null, y: null}, {x: null, y: null}];
     }
-    handleClearCanvas();
   };
 
   changeView_uiElement.addEventListener('change', establishView);
