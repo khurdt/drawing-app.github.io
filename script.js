@@ -1,22 +1,22 @@
 (function() {
   const canvas = document.querySelector('#canvas'),
-        changeView_uiElement = document.querySelector('#changeView'),
-        changeLineWidth_uiElement = document.querySelector('#changeLineWidth'),
-        changeColor_uiElement = document.querySelector('#changeColors'),
-        ctx = canvas.getContext('2d');
+    changeView_uiElement = document.querySelector('#changeView'),
+    changeLineWidth_uiElement = document.querySelector('#changeLineWidth'),
+    changeColor_uiElement = document.querySelector('#changeColors'),
+    ctx = canvas.getContext('2d');
 
   let currentColor = changeColor_uiElement.value,
-      currentLineWidth = changeLineWidth_uiElement.value,
-      currentView = changeView_uiElement.value,
-      isDrawing = false;
+    currentLineWidth = changeLineWidth_uiElement.value,
+    currentView = changeView_uiElement.value,
+    isDrawing = false;
 
   let previousCoords = [{x: null, y: null}];
 
   captureCanvasDimensions();
 
-  function handleStart(e) {
+  function handleStart() {
     isDrawing = true;
-  };
+  }
 
   function handleEnd() {
     isDrawing = false;
@@ -24,7 +24,7 @@
       item.x = null;
       item.y = null;
     })
-  };
+  }
 
   function handleMove(e) {
     if (!isDrawing) {
@@ -36,9 +36,9 @@
     let x = e.pageX - 10;
     let y = e.pageY - 60;
 
-          draw(x, y);
+    draw(x, y);
 
-  };
+  }
 
   function draw(x, y) {
 
@@ -79,25 +79,25 @@
       coords.y = newY;
 
     })
-  };
+  }
 
   function captureCanvasDimensions() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
     handleClearCanvas();
-  };
+  }
 
   function handleClearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-  };
+  }
 
   function handleChangeColor() {
     currentColor = changeColor_uiElement.value;
-  };
+  }
 
   function handlechangeLineWidth() {
     currentLineWidth = changeLineWidth_uiElement.value;
-  };
+  }
 
   function establishView() {
     currentView = changeView_uiElement.value;
@@ -109,15 +109,15 @@
     } else if (currentView === 'quadrants') {
       previousCoords = [{x: null, y: null}, {x: null, y: null}, {x: null, y: null}, {x: null, y: null}];
     }
-  };
+  }
 
   changeView_uiElement.addEventListener('change', establishView);
   changeLineWidth_uiElement.addEventListener('change', handlechangeLineWidth);
   changeColor_uiElement.addEventListener('change', handleChangeColor);
-  canvas.addEventListener("pointerdown", handleStart);
-  canvas.addEventListener("pointerup", handleEnd);
-  canvas.addEventListener("pointercancel", handleEnd);
-  canvas.addEventListener("pointermove", handleMove);
-  canvas.addEventListener("resize", captureCanvasDimensions);
+  canvas.addEventListener('pointerdown', handleStart);
+  canvas.addEventListener('pointerup', handleEnd);
+  canvas.addEventListener('pointercancel', handleEnd);
+  canvas.addEventListener('pointermove', handleMove);
+  canvas.addEventListener('resize', captureCanvasDimensions);
   document.querySelector('#clearCanvas').addEventListener('click', handleClearCanvas);
 })();
