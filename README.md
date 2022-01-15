@@ -1,4 +1,4 @@
-# drawing.app.github.io
+# Simple Drawing application
 ● allow user to draw either by touch or mouse
 <br /><br />
 ● allow user to change color
