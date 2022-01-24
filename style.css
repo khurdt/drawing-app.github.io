@@ -9,7 +9,7 @@ canvas {
   z-index: -1;
   top: 0;
   left: 0;
-  width: calc(100vw - 30px);
+  width: calc(100vw - 100px);
   height: calc(100vh - 30px);
 }
 
@@ -35,7 +35,7 @@ input {
   text-align: center;
 }
 
-button {
+#clearCanvas {
   border: 2px solid black;
   width: 150px;
   padding: 5px;
@@ -43,7 +43,34 @@ button {
   text-align: center;
 }
 
-button:hover, input:hover, select:hover {
+#clearCanvas:hover, input:hover, select:hover {
   background: grey;
   transition: all 0.3s;
+}
+
+.colors {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  margin-top: 50px;
+
+}
+
+.button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: rgba(0, 0, 0, 0);
+}
+
+.list-item{
+  list-style-type: none;
+}
+
+.button:hover {
+  opacity: 0.5;
+  transition: 0.2 ease;
 }

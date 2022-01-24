@@ -1,11 +1,47 @@
-(function() {
+let drawingApp = (function() {
+
+let colors = [
+    {
+      name: 'pink',
+      hex: '#FF00FF'
+    },
+    {
+      name: 'red',
+      hex: '#FF0000'
+    },
+    {
+      name: 'blue',
+      hex: '#0000ff'
+    },
+    {
+      name: 'yellow',
+      hex: '#ffff00'
+    },
+    {
+      name: 'green',
+      hex: '#41bc08'
+    },
+    {
+      name: 'orange',
+      hex: '#ff5e05'
+    },
+    {
+      name: 'purple',
+      hex: '#8305ff'
+    },
+    {
+      name: 'turquoise',
+      hex: '#05e8ff'
+    }
+  ]
+
   const canvas = document.querySelector('#canvas'),
     changeView_uiElement = document.querySelector('#changeView'),
     changeLineWidth_uiElement = document.querySelector('#changeLineWidth'),
     changeColor_uiElement = document.querySelector('#changeColors'),
     ctx = canvas.getContext('2d');
 
-  let currentColor = changeColor_uiElement.value,
+  let currentColor = undefined,
     currentLineWidth = changeLineWidth_uiElement.value,
     currentView = changeView_uiElement.value,
     isDrawing = false;
@@ -91,10 +127,6 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 
-  function handleChangeColor() {
-    currentColor = changeColor_uiElement.value;
-  }
-
   function handlechangeLineWidth() {
     currentLineWidth = changeLineWidth_uiElement.value;
   }
@@ -111,13 +143,55 @@
     }
   }
 
+  function loadColors(color) {
+    colors.forEach(function (item) {
+      let color = {
+        name: item.name,
+        hex: item.hex
+      }
+    });
+  }
+
+  function displayColors(color) {
+    let container = document.querySelector('.colors');
+    let listColor = document.createElement('li');
+    let button = document.createElement('button');
+    listColor.classList.add('list-item');
+    button.classList.add('button');
+    button.style.backgroundColor = color.hex;
+    button.innerText = color.name.toLowerCase();
+    listColor.appendChild(button);
+    container.appendChild(listColor);
+
+    button.addEventListener('click', (e) => {
+      currentColor = color.hex;
+      console.log(color.hex);
+    })
+  }
+
+  function getAll() {
+    return colors;
+  }
+
   changeView_uiElement.addEventListener('change', establishView);
   changeLineWidth_uiElement.addEventListener('change', handlechangeLineWidth);
-  changeColor_uiElement.addEventListener('change', handleChangeColor);
   canvas.addEventListener('pointerdown', handleStart);
   canvas.addEventListener('pointerup', handleEnd);
   canvas.addEventListener('pointercancel', handleEnd);
   canvas.addEventListener('pointermove', handleMove);
   canvas.addEventListener('resize', captureCanvasDimensions);
   document.querySelector('#clearCanvas').addEventListener('click', handleClearCanvas);
+
+  return {
+    getAll: getAll,
+    loadColors: loadColors,
+    displayColors: displayColors
+  }
 })();
+
+  drawingApp.getAll().forEach(function(color) {
+    drawingApp.loadColors(color);
+    drawingApp.displayColors(color);
+    console.log(color);
+  });
+
