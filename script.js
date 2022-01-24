@@ -38,7 +38,6 @@ let colors = [
   const canvas = document.querySelector('#canvas'),
     changeView_uiElement = document.querySelector('#changeView'),
     changeLineWidth_uiElement = document.querySelector('#changeLineWidth'),
-    changeColor_uiElement = document.querySelector('#changeColors'),
     ctx = canvas.getContext('2d');
 
   let currentColor = undefined,
@@ -143,7 +142,7 @@ let colors = [
     }
   }
 
-  function loadColors(color) {
+  function loadColors() {
     colors.forEach(function (item) {
       let color = {
         name: item.name,
@@ -163,7 +162,7 @@ let colors = [
     listColor.appendChild(button);
     container.appendChild(listColor);
 
-    button.addEventListener('click', (e) => {
+    button.addEventListener('click', () => {
       currentColor = color.hex;
       console.log(color.hex);
     })
