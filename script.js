@@ -10,8 +10,28 @@ let colors = [
       hex: '#FFFFFF'
     },
     {
+      name: 'dark purple',
+      hex: '#351c75'
+    },
+    {
       name: 'pink',
-      hex: '#FF00FF'
+      hex: '#ed76d9'
+    },
+    {
+      name: 'grey',
+      hex: '#b4bbc4'
+    },
+    {
+      name: 'brown',
+      hex: '#552410'
+    },
+    {
+      name: 'brown',
+      hex: '#00423c'
+    },
+    {
+      name: 'dark red',
+      hex: '#800000'
     },
     {
       name: 'red',
