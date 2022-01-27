@@ -102,10 +102,8 @@ let colors = [
       return;
     }
 
-    // const top = +window.getComputedStyle(canvas).getPropertyValue('top').slice(0, -2),
-    //       left = +window.getComputedStyle(canvas).getPropertyValue('left').slice(0, -2),
-    let x = e.pageX - 10;
-    let y = e.pageY - 10;
+    let x = e.pageX;
+    let y = e.pageY;
 
     draw(x, y);
 
