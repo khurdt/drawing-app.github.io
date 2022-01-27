@@ -2,6 +2,14 @@ let drawingApp = (function() {
 
 let colors = [
     {
+      name: 'black',
+      hex: '#000000'
+    },
+    {
+      name: 'white',
+      hex: '#FFFFFF'
+    },
+    {
       name: 'pink',
       hex: '#FF00FF'
     },
@@ -34,6 +42,34 @@ let colors = [
       hex: '#05e8ff'
     }
   ]
+
+  function loadColors() {
+    colors.forEach(function (item) {
+      let color = {
+        name: item.name,
+        hex: item.hex
+      }
+    });
+  }
+
+  function displayColors(color) {
+    let container = document.querySelector('.colors');
+    let listColor = document.createElement('li');
+    let button = document.createElement('button');
+    listColor.classList.add('list-item');
+    button.classList.add('button');
+    button.style.backgroundColor = color.hex;
+    button.innerText = color.name.toLowerCase();
+    listColor.appendChild(button);
+    container.appendChild(listColor);
+
+    button.addEventListener('click', () => {
+      currentColor = color.hex;
+      console.log(color.hex);
+    })
+  }
+
+  //----------Canvas-----------------------------------------------------------------------------------
 
   const canvas = document.querySelector('#canvas'),
     changeView_uiElement = document.querySelector('#changeView'),
@@ -69,7 +105,7 @@ let colors = [
     // const top = +window.getComputedStyle(canvas).getPropertyValue('top').slice(0, -2),
     //       left = +window.getComputedStyle(canvas).getPropertyValue('left').slice(0, -2),
     let x = e.pageX - 10;
-    let y = e.pageY - 60;
+    let y = e.pageY - 10;
 
     draw(x, y);
 
@@ -142,36 +178,6 @@ let colors = [
     }
   }
 
-  function loadColors() {
-    colors.forEach(function (item) {
-      let color = {
-        name: item.name,
-        hex: item.hex
-      }
-    });
-  }
-
-  function displayColors(color) {
-    let container = document.querySelector('.colors');
-    let listColor = document.createElement('li');
-    let button = document.createElement('button');
-    listColor.classList.add('list-item');
-    button.classList.add('button');
-    button.style.backgroundColor = color.hex;
-    button.innerText = color.name.toLowerCase();
-    listColor.appendChild(button);
-    container.appendChild(listColor);
-
-    button.addEventListener('click', () => {
-      currentColor = color.hex;
-      console.log(color.hex);
-    })
-  }
-
-  function getAll() {
-    return colors;
-  }
-
   changeView_uiElement.addEventListener('change', establishView);
   changeLineWidth_uiElement.addEventListener('change', handlechangeLineWidth);
   canvas.addEventListener('pointerdown', handleStart);
@@ -180,6 +186,34 @@ let colors = [
   canvas.addEventListener('pointermove', handleMove);
   canvas.addEventListener('resize', captureCanvasDimensions);
   document.querySelector('#clearCanvas').addEventListener('click', handleClearCanvas);
+
+  //---------------Menu button--------------------------------------------------------------------
+
+  const menu = document.querySelector("#control-container"),
+    menuItems = document.querySelectorAll(".control-item"),
+    hamburger= document.querySelector(".hamburger"),
+    closeIcon= document.querySelector(".close-icon"),
+    menuIcon = document.querySelector(".menu-icon");
+
+  function toggleMenu() {
+    if (menu.classList.contains("display")) {
+      menu.classList.remove("display");
+      closeIcon.style.display = "none";
+      menuIcon.style.display = "block";
+    } else {
+      menu.classList.add("display");
+      closeIcon.style.display = "block";
+      menuIcon.style.display = "none";
+    }
+  }
+
+   hamburger.addEventListener("click", toggleMenu);
+
+  //-----------------------------------------------------------------------------------------------
+
+  function getAll() {
+    return colors;
+  }
 
   return {
     getAll: getAll,
