@@ -191,7 +191,8 @@ let colors = [
     menuItems = document.querySelectorAll(".control-item"),
     hamburger= document.querySelector(".hamburger"),
     closeIcon= document.querySelector(".close-icon"),
-    menuIcon = document.querySelector(".menu-icon");
+    menuIcon = document.querySelector(".menu-icon"),
+    clearC = document.querySelector('#clearCanvas');
 
   function toggleMenu() {
     if (menu.classList.contains("display")) {
@@ -204,9 +205,9 @@ let colors = [
       menuIcon.style.display = "none";
     }
   }
-
    hamburger.addEventListener("click", toggleMenu);
-
+   clearC.addEventListener('click', toggleMenu);
+   
   //-----------------------------------------------------------------------------------------------
 
   function getAll() {
