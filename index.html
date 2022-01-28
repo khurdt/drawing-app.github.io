@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Drawing App</title>
     <meta name="description" content="">
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="./dist/style.production.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-  <button class="hamburger">
-    <i class="menu-icon"><img src="./images/hamburger-icon.png" alt="menu icon"></i>
-    <i class="close-icon">X</i>
-  </button>
+    <button class="hamburger">
+      <div class="menu-icon"><img src="./images/color-wheel.png" alt="menu icon from freepiks"></div>
+      <div class="close-icon"><img src="./images/close-icon.png" alt="close icon from free vectors"></div>
+    </button>
     <div id="control-container">
       <div class="control-item">
         <select id="changeView">
@@ -34,6 +34,6 @@
       </div>
     </div>
     <canvas id="canvas"></canvas>
-    <script src="script.js"></script>
+    <script src="./dist/script.production.js"></script>
   </body>
 </html>

@@ -8,25 +8,28 @@ body {
 
 .hamburger {
   position: fixed;
+  border: none;
   z-index: 100;
   top: 1rem;
   right: 1rem;
   padding: 5px;
-  border: black solid 1px;
-  background: white;
+  background: transparent;
   cursor: pointer;
 }
 
 .close-icon {
   display: none;
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
+}
+
+.close-icon img {
+  width: 50px;
+  height: 50px;
+  position: relative;
 }
 
 .menu-icon img {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
 }
 
 #control-container {
@@ -65,34 +68,27 @@ canvas {
   height:100%;
 }
 
-select {
-  border: 2px solid black;
-  width: 120px;
-  padding: 5px;
-  margin: 10px auto;
+select, input, #clearCanvas {
+  border: none;
+  text-decoration: none;
+  width: 225px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: lightseagreen;
+  color: black;
+  padding: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, .3);
   text-align: center;
-}
-
-
-input {
-  border: 2px solid black;
-  width: 100px;
-  padding: 5px;
-  margin: 10px auto;
-  text-align: center;
-}
-
-#clearCanvas {
-  border: 2px solid black;
-  width: 120px;
-  padding: 5px;
-  margin: 10px auto;
-  text-align: center;
+  cursor: pointer;
 }
 
 #clearCanvas:hover, input:hover, select:hover {
-  background: grey;
+  opacity: 0.7;
   transition: all 0.3s;
+}
+
+input {
+  height: 20px;
 }
 
 .colors {

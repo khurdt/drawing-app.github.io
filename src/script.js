@@ -207,26 +207,27 @@ let colors = [
 
   //---------------Menu button--------------------------------------------------------------------
 
-  const menu = document.querySelector("#control-container"),
-    menuItems = document.querySelectorAll(".control-item"),
-    hamburger= document.querySelector(".hamburger"),
-    closeIcon= document.querySelector(".close-icon"),
-    menuIcon = document.querySelector(".menu-icon"),
+  const menu = document.querySelector('#control-container'),
+    hamburger= document.querySelector('.hamburger'),
+    closeIcon= document.querySelector('.close-icon'),
+    menuIcon = document.querySelector('.menu-icon'),
     clearC = document.querySelector('#clearCanvas');
 
   function toggleMenu() {
-    if (menu.classList.contains("display")) {
-      menu.classList.remove("display");
-      closeIcon.style.display = "none";
-      menuIcon.style.display = "block";
+    if (menu.classList.contains('display')) {
+      menu.classList.remove('display');
+      closeIcon.style.display = 'none';
+      menuIcon.style.display = 'block';
     } else {
-      menu.classList.add("display");
-      closeIcon.style.display = "block";
-      menuIcon.style.display = "none";
+      menu.classList.add('display');
+      closeIcon.style.display = 'block';
+      menuIcon.style.display = 'none';
     }
   }
-   hamburger.addEventListener("click", toggleMenu);
-   clearC.addEventListener('click', toggleMenu);
+
+  hamburger.addEventListener('click', toggleMenu);
+  
+  clearC.addEventListener('click', toggleMenu);
    
   //-----------------------------------------------------------------------------------------------
 
