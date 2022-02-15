@@ -1,6 +1,6 @@
-let drawingApp = (function() {
+let drawingApp = (function () {
 
-let colors = [
+  let colors = [
     {
       name: 'black',
       hex: '#000000'
@@ -101,7 +101,7 @@ let colors = [
     currentView = changeView_uiElement.value,
     isDrawing = false;
 
-  let previousCoords = [{x: null, y: null}];
+  let previousCoords = [{ x: null, y: null }];
 
   captureCanvasDimensions();
 
@@ -111,7 +111,7 @@ let colors = [
 
   function handleEnd() {
     isDrawing = false;
-    previousCoords.forEach( item => {
+    previousCoords.forEach(item => {
       item.x = null;
       item.y = null;
     })
@@ -140,13 +140,13 @@ let colors = [
       if (i === 0) {
         newX = x;
         newY = y;
-      }else if (i === 1) {
+      } else if (i === 1) {
         newX = width - x;
         newY = y;
-      }else if (i === 2) {
+      } else if (i === 2) {
         newX = width - x;
         newY = height - y;
-      }else {
+      } else {
         newX = x;
         newY = height - y;
       }
@@ -188,11 +188,11 @@ let colors = [
     currentView = changeView_uiElement.value;
 
     if (currentView === 'normal') {
-      previousCoords = [{x: null, y: null}]
+      previousCoords = [{ x: null, y: null }]
     } else if (currentView === 'mirror') {
-      previousCoords = [{x: null, y: null}, {x: null, y: null}]
+      previousCoords = [{ x: null, y: null }, { x: null, y: null }]
     } else if (currentView === 'quadrants') {
-      previousCoords = [{x: null, y: null}, {x: null, y: null}, {x: null, y: null}, {x: null, y: null}];
+      previousCoords = [{ x: null, y: null }, { x: null, y: null }, { x: null, y: null }, { x: null, y: null }];
     }
   }
 
@@ -208,8 +208,8 @@ let colors = [
   //---------------Menu button--------------------------------------------------------------------
 
   const menu = document.querySelector('#control-container'),
-    hamburger= document.querySelector('.hamburger'),
-    closeIcon= document.querySelector('.close-icon'),
+    hamburger = document.querySelector('.hamburger'),
+    closeIcon = document.querySelector('.close-icon'),
     menuIcon = document.querySelector('.menu-icon'),
     clearC = document.querySelector('#clearCanvas');
 
@@ -226,9 +226,9 @@ let colors = [
   }
 
   hamburger.addEventListener('click', toggleMenu);
-  
+
   clearC.addEventListener('click', toggleMenu);
-   
+
   //-----------------------------------------------------------------------------------------------
 
   function getAll() {
@@ -242,9 +242,9 @@ let colors = [
   }
 })();
 
-  drawingApp.getAll().forEach(function(color) {
-    drawingApp.loadColors(color);
-    drawingApp.displayColors(color);
-    console.log(color);
-  });
+drawingApp.getAll().forEach(function (color) {
+  drawingApp.loadColors(color);
+  drawingApp.displayColors(color);
+  console.log(color);
+});
 
