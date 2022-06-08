@@ -1,4 +1,8 @@
 # Simple Drawing application
+
+An application for drawing with mulitple colors, widths, and lines. This app was created through HTML 5 canvas vanilla javascript.
+
+# What the App should do
 ● allow user to draw either by touch or mouse
 <br /><br />
 ● allow user to change color
